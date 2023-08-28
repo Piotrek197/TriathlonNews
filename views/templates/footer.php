@@ -1,0 +1,1 @@
+<!-- <footer> Writed by Piotr Okrój & Copyright 2023</footer> -->
