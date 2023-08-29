@@ -14,12 +14,14 @@ define("VIEW_PATH", __DIR__ . "\\views\\templates\\pages");
 
 
 
-$router = new Essential\Router();
+$router = new Essentials\Router();
 
 $router
         ->get("/", [Controllers\PostController::class, "index"])
         ->get("/posts", [Controllers\PostController::class, "getposts"])
-        ->post("/post", [Controllers\PostController::class, "addPost"]);
+        ->post("/post", [Controllers\PostController::class, "addPost"])
+        ->post("/delete", [Controllers\PostController::class, "deletePostById"])
+        ->post("/update", [Controllers\PostController::class, "updatePostById"]);
 
         
 echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));

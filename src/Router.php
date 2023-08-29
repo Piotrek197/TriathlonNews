@@ -1,5 +1,5 @@
 <?php
-namespace App\Essential;
+namespace App\Essentials;
 
 // use Controllers\Controller;
 
@@ -7,6 +7,10 @@ class Router {
 
 
     private array $_routes;
+
+    public function __construct() {
+        $this->_routes = [];
+    }
 
     /*callback = [$controller, $method]*/
     public function get($route, array $callback){
@@ -20,6 +24,16 @@ class Router {
     public function post($route, array $callback) {
         $this->_routes["post"][$route] = $callback;
         return $this;
+    }
+
+    // public function delete($route, array $callback) {
+    //     $this->_routes["delete"][$route] = $callback;
+    //     return $this;
+    // }
+
+
+    public function getRoutes() {
+        return $this->_routes;
     }
 
     public function execute($path = ""){

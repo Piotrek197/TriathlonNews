@@ -36,10 +36,10 @@ class Post {
 
 
     public function getTitle(): string {
-        return $this->$_title;
+        return $this->_title;
     }
     public function getText(): string {
-        return $this->$_text;
+        return $this->_text;
     }
     public function getCategory(): string {
         return $this->_category;
@@ -73,6 +73,15 @@ class Post {
         ->select("*")
         ->from("articles")
         ->fetchAllAssociative();
+    }
+
+    public static function deletePostById(int $id) {
+        return (new Db())->delete(self::TABLE_NAME, ["id" => $id]);
+    }
+
+    public static function updatePostById(int $id):string {
+        
+        return "update post " . $id;
     }
 
 

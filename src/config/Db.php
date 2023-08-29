@@ -29,6 +29,9 @@ class Db {
         return $this->conn->insert($table, $params);
     }
 
+    public function delete($table, $params){
+        return $this->conn->delete($table, $params);
+    }
 
     public function fetch($sql){
 

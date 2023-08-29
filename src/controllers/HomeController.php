@@ -39,4 +39,23 @@ class PostController extends Controller {
 
         return "add post";
     }
+
+    public function deletePostById(array $params){
+
+        $id = $params['id'];
+
+        // if(!self::isValidInteger($id)) return null;
+
+        if(Post::deletePostById($id))
+            return self::redirectTo("/posts");
+    }
+
+    public function updatePostById(array $params){
+
+        $id = (int)$params['id'];
+
+        // if(!self::isValidInteger($id)) return null;
+
+        echo Post::updatePostById($id);
+    }
 }

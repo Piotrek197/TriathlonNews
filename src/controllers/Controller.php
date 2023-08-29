@@ -22,6 +22,8 @@ class Controller {
     }
 
     public static function redirectTo(string $path) {
+        header("Location: /posts");
+        die();
         return;
     }
 
